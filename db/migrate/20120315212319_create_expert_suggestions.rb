@@ -10,6 +10,7 @@ class CreateExpertSuggestions < ActiveRecord::Migration
       t.string :recommendation
       t.references :citizen
       t.references :idea
+      t.references :supporter
 
       t.timestamps
     end

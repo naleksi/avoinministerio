@@ -12,6 +12,7 @@ AvoinMinisterio::Application.routes.draw do
 #  end
 
 
+  resources :expert_suggestions
 
   match "/ideas/:id/vote/:vote"     => "vote#vote", as: :vote_idea
 
