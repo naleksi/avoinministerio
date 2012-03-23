@@ -34,6 +34,8 @@ gem "unicorn"
 
 gem "rspec-rails", :groups => [ :development, :test ]
 
+gem "grape"
+
 group :development do
   gem "rails-erd"
   gem "sqlite3"

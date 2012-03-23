@@ -1,4 +1,16 @@
+#require 'api'
 AvoinMinisterio::Application.routes.draw do
+#  mount AmApi::API => "/" #API will be available under "/api"
+
+  namespace :api do
+    namespace :v1 do
+      resources :ideas
+    end
+  end
+
+
+
+  match "/ideas/:id/vote/:vote"     => "vote#vote", as: :vote_idea
 
   resource :profile, :except => [:new, :create, :destroy]  
   resource :citizen, :only => [:edit, :update]
@@ -77,6 +89,9 @@ AvoinMinisterio::Application.routes.draw do
   end
 
   root to: "pages#home"
+
 end
+
+
 
 ActionDispatch::Routing::Translator.translate_from_file('config/locales/routes.yml', { :no_prefixes => true })
