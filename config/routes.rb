@@ -1,12 +1,15 @@
-#require 'api'
+require 'api'
+#require 'lib/api'
 AvoinMinisterio::Application.routes.draw do
-#  mount AmApi::API => "/" #API will be available under "/api"
+  mount AmApi::Api => "/" #API will be available under "/api"
+#  mount AmApi::Api => "/" #API will be available under "/api"
+#  mount AmApi::Api => "/api" #API will be available under "/api"
 
-  namespace :api do
-    namespace :v1 do
-      resources :ideas
-    end
-  end
+#  namespace :api do
+#    namespace :v1 do
+#      resources :ideas
+#    end
+#  end
 
 
 
