@@ -22,3 +22,9 @@
 
 # Ignore NetBeans project (eases development with NetBeans)
 /nbproject
+
+# Ignore local databases
+
+avoin_ministerio_test
+avoin_ministerio_development
+

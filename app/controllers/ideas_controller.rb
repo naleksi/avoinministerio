@@ -5,7 +5,7 @@ require 'will_paginate/array'
 class IdeasController < ApplicationController
   before_filter :authenticate_citizen!, except: [ :index, :show, :search ]
   
-  respond_to :html
+  respond_to :html, :json
 
   # should be implemented instead with counter_caches and also vote_pro (and vote_even_abs_diff cache)
   def index
