@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   respond_to :js
   
-  before_filter :authenticate_citizen!
+  before_filter :authenticate_citizen!, except: [ :index, :show ]
   before_filter :load_resource
   
   def create
