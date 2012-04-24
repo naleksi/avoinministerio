@@ -5,6 +5,16 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale_from_url
   before_filter :set_changer
 
+  after_filter :set_access_control_headers
+
+  # these are added to let mobile access even if the mobile app hasn't been released from server
+  # ie. phonegap packaging and local mobile app development against real server will work
+  # TODO: might have some security implications
+  def set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Request-Method'] = '*'
+  end
+
   def after_sign_in_path_for(resource)
       KM.identify(current_citizen)
       KM.push("record", "signed in")
