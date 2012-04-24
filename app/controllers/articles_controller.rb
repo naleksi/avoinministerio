@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_filter :authenticate_citizen!, except: [ :index, :show ]
   
-  respond_to :html
+  respond_to :html, :json
 
   def index
     article_type = params[:article_type] || "blog"
