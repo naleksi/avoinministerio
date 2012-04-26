@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
     }[article_type]
     @published_blogs = Article.published.where(article_type: article_type).order("created_at DESC")
     @blogs = @published_blogs.paginate(page: params[:page], per_page: 15)
+  	@articles = Article.published.all
   end
 
   def show
