@@ -341,6 +341,7 @@ DEPENDENCIES
   guard-spork (= 1.0.0)
   haml-rails
   hominid
+  httpauth
   i18n_routing
   jquery-rails
   launchy
