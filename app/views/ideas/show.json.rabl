@@ -6,3 +6,6 @@ end
 node :user_vote do |idea|
 	idea.votes.by(current_citizen).first
 end
+node :articles do |idea|
+	idea.articles.map{|a| a.id}
+end
