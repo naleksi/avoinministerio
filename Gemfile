@@ -31,8 +31,7 @@ gem "hominid"
 #gem "indextank"
 gem "tanker", :git => "git://github.com/kidpollo/tanker.git"
 gem "unicorn"
-gem "aws-s3", :require => "aws/s3"
-gem "s3stream"
+gem "aws-sdk", :require => "aws/s3"
 
 gem "rspec-rails", :groups => [ :development, :test ]
 
