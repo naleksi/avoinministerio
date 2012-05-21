@@ -21,6 +21,34 @@ module ApplicationHelper
     sprintf("%d.%d.%d", time.mday, time.month, time.year)
   end
 
+  def save_to_amazon_s3(data, bucket_name, object_name, options = {})
+    require 'aws/s3'
+    
+    # makes sure that we connect to the right region
+    # and can access the bucket
+    AWS::S3::DEFAULT_HOST.replace bucket_name + '.s3.amazonaws.com'
+    
+    options[:use_ssl] = true
+    AWS::S3::Base.establish_connection!(options)
+    
+    s3object = AWS::S3::S3Object.store(
+      object_name,
+      data,
+      bucket_name,
+      :access => :private
+    )
+    
+    url = s3object.url(
+      :expires_in => 5 * 60,
+      :use_ssl => true,
+      :authenticated => true
+    )
+    
+    AWS::S3::Base.disconnect
+    
+    url
+  end
+
 end
 
 def current_timezone
@@ -30,20 +58,22 @@ end
 def today_date(timezone = current_timezone)
   # changes UTC time into Finnish timezone and then converts it to date, yielding correct date around midnight
   DateTime.now.new_offset(timezone).to_date   
+  
 end
 
 
-class Numeric
-     def format(separator = ',', decimal_point = '.')
-         num_parts = self.to_s.split('.')
-         x = num_parts[0].reverse.scan(/.{1,3}/).join(separator).reverse
-         x << decimal_point + num_parts[1] if num_parts.length == 2
-         return x
-     end
 
-     def Numeric.format(number, *args)
-         number.format(*args)
-     end
+class Numeric
+  def format(separator = ',', decimal_point = '.')
+    num_parts = self.to_s.split('.')
+    x = num_parts[0].reverse.scan(/.{1,3}/).join(separator).reverse
+    x << decimal_point + num_parts[1] if num_parts.length == 2
+    return x
+  end
+
+  def Numeric.format(number, *args)
+    number.format(*args)
+  end
 
 end
 
