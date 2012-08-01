@@ -35,5 +35,7 @@ class Signature < ActiveRecord::Base
     else
       nil
     end
+
+    signature
   end
 end
