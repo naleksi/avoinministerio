@@ -50,12 +50,13 @@ class IdeasController < ApplicationController
 
   def setup_filtering_and_sorting_options
     @filters = [
-      [:all,                "Kaikki",                proc {|f| f} ],
-      [:ideas,              "Ideat",                 proc {|f| f.where(state: :idea)} ],
-      [:drafts,             "Luonnokset",            proc {|f| f.where(state: :draft)} ],
-      [:law_proposals,      "Lakialoitteet",         proc {|f| f.where(state: :proposal)} ],
-      [:action_proposals,   "Toimenpidealoitteet",   proc {|f| f.where(state: :proposal)} ],
-      [:laws,               "Lait",                  proc {|f| f.where(state: :law)} ],
+      [:all,                   "Kaikki",                   proc {|f| f} ],
+      [:ideas,                 "Ideat",                    proc {|f| f.where(state: :idea)} ],
+      [:drafts,                "Luonnokset",               proc {|f| f.where(state: :draft)} ],
+      [:law_proposals,         "Lakialoitteet",            proc {|f| f.where(state: :proposal)} ],
+      [:action_proposals,      "Toimenpidealoitteet",      proc {|f| f.where(state: :proposal)} ],
+      [:drafts_and_proposals,  "Aloitteet ja luonnokset",  proc {|f| f.where("state = 'draft' OR state = 'proposal'")} ],
+      [:laws,                  "Lait",                     proc {|f| f.where(state: :law)} ],
     ]
 
     @orders = {

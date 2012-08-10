@@ -42,8 +42,8 @@
     - if ENV['Feature_Searchbox']
       .grid_24.search
         .search
-          Haku:
           = form_tag "/ideat/haku", :method => "get"
+          Haku:
           = text_field_tag 'searchterm'
           (esim. 
           %i tasa*
