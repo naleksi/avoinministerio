@@ -3,7 +3,10 @@
   = f.input :first_names
   = f.input :first_name
   = f.input :last_name
-  = f.input :image
+  = f.input :image, :wrapper_html => {:style => "float: left;"}
+  %img.avatar{ src: current_citizen.image, width: 48, height: 48,
+               style: "margin: 1em;", alt: "avatar" }
+  %br{:style => "clear: both;"}
   = f.input :receive_newsletter
   = f.input :receive_other_announcements
   = f.input :receive_weekletter
