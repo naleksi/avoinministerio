@@ -26,3 +26,21 @@
   $("#profile_accept_terms_of_use").attr({"disabled": false})
   $("#profile_accept_terms_of_use").removeClass("disabled")
   $("#profile_accept_terms_of_use").parent().removeClass("disabled")
+  
+  var savingIndicator = document.createElement("div")
+  
+  var spinner = document.createElement("img")
+  spinner.src = "/assets/spinner.gif"
+  spinner.alt = "Tallennetaan kuvaa..."
+  var text = document.createTextNode("Tallennetaan kuvaa...")
+  
+  savingIndicator.appendChild(spinner)
+  savingIndicator.appendChild(text)
+  
+  $("form").submit(function() {
+    if ($("#profile_image")[0].value != "") {
+      // saving the picture takes around 30 seconds,
+      // so let's warn the citizen about that
+      $("form").after(savingIndicator)
+    }
+  })
