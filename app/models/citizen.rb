@@ -53,7 +53,7 @@ class Citizen < ActiveRecord::Base
   end
 
   def image
-    profile.image || Gravatar.new(email).image_url(ssl: true)
+    profile.image.url || Gravatar.new(email).image_url(ssl: true)
   end
   
   def active_for_authentication?
@@ -85,7 +85,7 @@ class Citizen < ActiveRecord::Base
                       profile: Profile.new(first_names: info[:first_name],
                                            first_name: info[:first_name], 
                                            last_name: info[:last_name],
-                                           image: auth_hash[:info][:image])
+                                           remote_image_url: auth_hash[:info][:image])
     c.authentication = Authentication.new provider: auth_hash[:provider],
                                           uid: auth_hash[:uid],
                                           citizen: c,

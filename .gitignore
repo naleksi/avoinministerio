@@ -22,3 +22,6 @@
 
 # Ignore NetBeans project (eases development with NetBeans)
 /nbproject
+
+# Ignore CarrierWave "uploads"
+/public/uploads

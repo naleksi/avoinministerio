@@ -1,3 +1,5 @@
+require "carrierwave/orm/activerecord"
+
 class Profile < ActiveRecord::Base
   belongs_to :citizen
 
@@ -6,6 +8,8 @@ class Profile < ActiveRecord::Base
     :accept_science, :accept_terms_of_use
   
   validates :first_names, :first_name, :last_name, :presence => true
+  
+  mount_uploader :image, ProfileImageUploader
   
   def name
     "#{first_name} #{last_name}"

@@ -30,7 +30,7 @@ fi:
         receive_newsletter: "Tilaan uutiskirjeen"
         receive_other_announcements: "Minulle saa lähettää muita tiedotteita"
         receive_weekletter: "Tilaan viikkokirjeen"
-        image: "Profiilikuvan URL-osoite"
+        image: "Profiilikuva"
         accept_science: "Minuun saa ottaa yhteyttä tieteellisten tutkimusten puitteissa"
         accept_terms_of_use: "Hyväksyn palvelun <a href='/artikkelit/4'>käyttöehdot</a>"
       expert_suggestion:
@@ -106,3 +106,9 @@ fi:
     previous_label: "&laquo; Edelliset"
     next_label: "Seuraavat &raquo;"
     page_gap: "..."
+  errors:
+    messages:
+      carrierwave_processing_error: "Kuvan pienentäminen epäonnistui."
+      mini_magick_processing_error: "Kuvan pienentäminen epäonnistui."
+      carrierwave_integrity_error: "Tiedosto ei ole kuva."
+      carrierwave_download_error: "Kuvan lataaminen epäonnistui."

@@ -31,6 +31,8 @@ gem "hominid"
 #gem "indextank"
 gem "tanker", :git => "git://github.com/kidpollo/tanker.git"
 gem "unicorn"
+gem "carrierwave"
+gem "mini_magick"
 
 gem "rspec-rails", :groups => [ :development, :test ]
 
@@ -49,6 +51,7 @@ end
 group :production do
   gem "newrelic_rpm"
   gem "pg"
+  gem "fog", "~> 1.3.1"
 end
 
 group :test do

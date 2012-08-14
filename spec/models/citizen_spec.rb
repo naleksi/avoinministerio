@@ -2,17 +2,6 @@ require 'spec_helper'
 
 describe Citizen do
   describe "#image" do
-    context "with profile picture" do
-      before do
-        profile = Factory(:profile, :image => "http://www.facebook.com/images/1234.png")
-        @citizen = Factory(:citizen, :profile => profile)
-      end
-
-      it "should use user specified profile picture" do
-        @citizen.image.should == "http://www.facebook.com/images/1234.png"
-      end
-    end
-
     context "without profile picture" do
       before do
         @citizen = Factory(:citizen, :email => "foo@example.com")
