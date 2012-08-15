@@ -56,5 +56,18 @@ describe CitizensController do
       end
     end
   end
+  
+  get :register_with_facebook do    
+    it "should create a new citizen and a new authentication" do
+      session["devise.facebook_data"] = auth_hash
+      lambda {
+        lambda {
+          action!
+        }.should change(Citizen, :count).by(1)
+      }.should change(Authentication, :count).by(1)
+      controller.citizen_signed_in?.should be_true
+      response.should redirect_to(root_path)
+    end
+  end
 
 end

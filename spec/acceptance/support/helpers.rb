@@ -100,7 +100,7 @@ module HelperMethods
         :name => 'Joe Bloggs',
         :first_name => 'Joe',
         :last_name => 'Bloggs',
-        :image => 'http://graph.facebook.com/1234567/picture?type=square',
+#        :image => 'http://graph.facebook.com/1234567/picture?type=square',
         :urls => { :Facebook => 'http://www.facebook.com/jbloggs' },
         :location => 'Palo Alto, California',
         :verified => true

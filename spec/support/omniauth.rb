@@ -8,7 +8,7 @@ def auth_hash
       :name => 'Erkki Esimerkki',
       :first_name => 'Erkki',
       :last_name => 'Esimerkki',
-      :image => 'http://graph.facebook.com/1234567/picture?type=square',
+#      :image => 'http://graph.facebook.com/1234567/picture?type=square',
       :urls => { :Facebook => 'http://www.facebook.com/eerkki' },
       :location => 'Helsinki, Finland'
     },

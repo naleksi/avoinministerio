@@ -28,6 +28,8 @@ AvoinMinisterio::Application.routes.draw do
     sessions: "citizens/sessions",
   }
   
+  match "/kansalaiset/facebook_rekisteroityminen" => "citizens#register_with_facebook", as: :citizen_register_with_facebook
+  
   resources :ideas do
     resources :comments
     resources :expert_suggestions, only: [:new, :create]
