@@ -34,6 +34,10 @@ class Idea < ActiveRecord::Base
   validates :title, length: { minimum: 5, message: "Otsikko on liian lyhyt." }
   validates :body,  length: { minimum: 5, message: "Kuvaa ideasi hieman tarkemmin." }
   validates :state, inclusion: { in: VALID_STATES }
+  
+  before_create do |idea|
+    idea.updated_content_at = DateTime.now
+  end
 
   tankit index_name do
     conditions do

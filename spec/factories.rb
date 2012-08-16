@@ -47,7 +47,6 @@ FactoryGirl.define do
     summary   "Hyvä idea"
     state     "idea"
     association :author, factory: :citizen
-    updated_content_at DateTime.now
   end
 
   factory :vote do
