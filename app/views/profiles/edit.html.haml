@@ -1,5 +1,5 @@
 %h2 Asetukset
-= simple_form_for @profile do |f|
+= simple_form_for @profile, :html => {:id => "edit_profile_form"} do |f|
   = f.input :first_names
   = f.input :first_name
   = f.input :last_name
@@ -40,10 +40,10 @@
   savingIndicator.appendChild(spinner)
   savingIndicator.appendChild(text)
   
-  $("form").submit(function() {
+  $("#edit_profile_form").submit(function() {
     if ($("#profile_image")[0].value != "") {
       // saving the picture takes around 30 seconds,
       // so let's warn the citizen about that
-      $("form").after(savingIndicator)
+      $("#edit_profile_form").after(savingIndicator)
     }
   })
