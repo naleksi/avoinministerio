@@ -4,16 +4,6 @@
   %h1 
     Tulokset haulle
     %i= params['searchterm']
-.grid_24.search
-  .search
-    Haku:
-    = form_tag "/ideat/haku", :method => "get"
-    = text_field_tag 'searchterm', params['searchterm']
-    (esim. 
-    %i tasa*
-    tai 
-    %i koira ja vero
-    )
   - unless @ideas.empty?
     %h2 Ideat
     - @ideas.each_with_index do |idea,i|

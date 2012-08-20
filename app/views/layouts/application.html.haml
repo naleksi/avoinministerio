@@ -36,12 +36,13 @@
     = render partial: 'shared/login_actions'
     = render partial: 'shared/facebook_js'
     .idea_actions.bottom_row
-      .grid_6
-        &nbsp;
-      .grid_3
-        = link_to "Listaa kaikki", ideas_path
-      .grid_3
-        = link_to "Anna idea", new_idea_path
+      = form_tag "/ideat/haku", :method => "get" do
+        = link_to "Anna idea", new_idea_path, :class => "new_idea_btn"
+        = link_to "Listaa kaikki", ideas_path, :class => "idea_list_btn"
+        = text_field_tag 'searchterm', params['searchterm'], :placeholder => "HAE",
+          :style => "border-right-style: none;"
+        = image_submit_tag "search.ico", :width => 35, :height => 35,
+          :style => "margin-left: -8px;", :alt => "Hae"
   .container.container_24
     %section
       = yield

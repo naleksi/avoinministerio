@@ -181,6 +181,10 @@ class IdeasController < ApplicationController
   end
 
   def search
+    if params['searchterm'] == ""
+      render "empty_search" and return
+    end
+    
     @per_page = 20
     @page = (params[:page] && params[:page].to_i) || 1
     

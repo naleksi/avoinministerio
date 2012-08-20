@@ -1,0 +1,10 @@
+%h2 Haku
+
+Syötä hakutermi alla olevaan kenttään ja paina Enter.
+
+= form_tag "/ideat/haku", :method => "get" do
+  = text_field_tag 'searchterm', ''
+  = submit_tag 'Hae'
+
+= link_to "Hakusyntaksi", "http://www.searchify.com/documentation/query-syntax"
+%span.language (englanniksi)

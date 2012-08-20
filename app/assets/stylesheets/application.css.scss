@@ -29,11 +29,46 @@ body > header, body > header.top_row_container > .container_24, .ideas_header.co
   border-right: 0 none;
 }
 
-header .login_actions a, header .idea_actions a {
+header .login_actions a {
   color: $turquoise;
   font-weight: bold;
   text-decoration: none;
 }
+
+header .idea_actions {
+  float: right;
+}
+
+header .idea_actions * {
+  vertical-align: middle;
+}
+
+header .idea_actions .new_idea_btn {
+  margin: 0 auto 10px;
+  padding: 10px;
+  background: $violet;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+header .idea_actions .idea_list_btn {
+  margin: 0 auto 10px;
+  padding: 10px;
+  background: #CCCCCC;
+  color: black;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+header .idea_actions input {
+  padding: 0 1px;
+  height: 35px;
+  border: 1px solid grey;
+}
+
 header > .login_actions > div {
   float: right;
   line-height: 25px;
