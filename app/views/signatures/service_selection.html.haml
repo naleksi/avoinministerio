@@ -18,7 +18,7 @@
       %p Sinun ei tarvitse tunnistautua uudelleen. Ja erityisesti jos käytät maksullista tunnistautumispalvelua voit välttää uuden maksun
 
       .grid_16
-        %a{:href => signature_idea_shortcutting_to_signing_path(@signature, service: "shortcut")}
+        %a.btn-service{:href => signature_idea_shortcutting_to_signing_path(@signature, service: "shortcut")}
           Kannatusilmoituksen jättö ilman uutta tunnistautumista
 
 
@@ -30,12 +30,8 @@
             .grid_16
               %a{:href => signature_idea_selected_free_service_path(@signature, service: service[:name])}
                 =service[:name]
-            /          - parameters, base_url = @parameters_and_urls[service[:name]]
-            /          %form{:action => base_url[Rails.env], :method => "post"}
-            /            - parameters.each do |parameter_name, parameter_value|
-            /              %input{:type => 'hidden', :name => parameter_name, :value => parameter_value}
-            /            %input{:type => 'submit', :value => service[:name]}
-
+              %a.btn-service{:href => signature_idea_selected_free_service_path(@signature, service: service[:name])}
+                =service[:name]+ ' (0.00€)'
 
       .grid_12
         .signature_form
@@ -59,7 +55,7 @@
                   %form{:action => service[:url], :method => "post"}
                     - (service.keys - [:name, :url, :fee]).each do |key|
                       %input{:type => 'hidden', :name => key.to_s, :value => service[key]}
-                    %input{:type => 'submit', :value => "#{service[:name]} (#{service[:fee]}€)"}
+                    %input{:type => 'submit', :class => 'btn-payment', :value => "#{service[:name]} (#{service[:fee]}€)"}
             - ready = @payment_services.find_all {|service| service[:fee] and saldo >= BigDecimal.new(service[:fee])}
             - if not ready.empty?
               %h2
@@ -69,7 +65,7 @@
                   %form{:action => service[:url], :method => "post"}
                     - (service.keys - [:name, :url, :fee]).each do |key|
                       %input{:type => 'hidden', :name => key.to_s, :value => service[key]}
-                    %input{:type => 'submit', :value => "#{service[:name]} (#{service[:fee]}€)"}
+                    %input{:type => 'submit', :class => 'btn-payment', :value => "#{service[:name]} (#{service[:fee]}€)"}
 
     .grid_24
       .extra-info

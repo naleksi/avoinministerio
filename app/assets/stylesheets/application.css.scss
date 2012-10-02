@@ -315,3 +315,118 @@ input[type=submit] {
 * html .clearfix             { zoom: 1; } /* IE6 */
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */
 
+.ideatitle {
+  color: #473161;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 40px;
+  margin: 20px 0 5px;
+  border-bottom: 2px solid #473161;
+}
+
+.text {
+  line-height: 25px;
+  p {
+    color: #473161;
+    font-size: 22px;
+  }
+  ol {
+    margin-top: 10px;
+    > li {
+      margin-top: 20px;
+      ul > li {
+        font-weight: normal;
+        line-height: 22px;
+      }
+    }
+  }
+}
+
+
+.sidebox {
+  width: 20%;
+  float: right;
+  -moz-box-shadow: 0px 2px 2px #b5b5b5;
+  -webkit-box-shadow: 0px 2px 2px #b5b5b5;
+  box-shadow: 0px 2px 2px #b5b5b5;
+  background-color: #eff3f4;
+  padding: 10px;
+}
+
+.btn-listall {
+  color: white;
+  font-size: 12px;
+  background-color: #473161;
+  padding: 0.5em 2em;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.returning .box {
+  .other-initiatives {
+    ul {
+      display: inline-block;
+      width: 100%;
+      li {
+        float: left;
+        margin-left: 0;
+        margin-right: 20px;
+        width: 35%;
+        list-style: none;
+        -moz-box-shadow: 0px 2px 2px #b5b5b5;
+        -webkit-box-shadow: 0px 2px 2px #b5b5b5;
+        box-shadow: 0px 2px 2px #b5b5b5;
+        background-color: #eff3f4;
+        position: relative;
+        top: 0;
+        a {
+          background-color: #473161;
+          text-decoration: none;
+          font-size: 10px;
+          padding: 0 7px;
+          display: block;
+          min-height: 32px;
+          padding: 5px 50px 5px 7px;
+          color: white;
+          font-weight: bold;
+          z-index: 1;
+        }
+        p {
+          margin: 5px 0;
+          padding: 5px;
+          font-size: 10px;
+        }
+        .vote-progress {
+          right: 0;
+          top: 0;
+          position: absolute;
+          z-index: 10;
+          .yes, .no {
+            font-size: 10px;
+            font-weight: bold;
+            color: white;
+            padding: 3px 20px 3px 5px;
+          }
+          .yes {
+            background: #8dc642 url('/assets/vote-yes.png') 30px 4px no-repeat;
+          }
+          .no {
+            background: #a9003f url('/assets/vote-no.png') 30px 6px no-repeat;
+          }
+        }
+      }
+    }
+  }
+  .title {
+    margin-bottom: 10px;
+  }
+}
+
+.returning .box {
+  max-width: 75%;
+}
+
+.text p.info {
+  font-size: 12px;
+  line-height: 20px;
+}
